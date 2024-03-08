@@ -9,13 +9,26 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Music Album`,
+    description: ``,
+    author: `Ryan Scott`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    contact:{
+      name: 'Ryan Scott',
+      company: 'Blogs Inc.',
+      address: 'PO Box 1234'
+  }
   },
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-plugin-styled-components`,
+    {
+      resolve:'gatsby-source-conentful',
+      options:{
+        spaceId: '${process.env.SPACE_ID}',
+        accessToken:'${process.env.ACCESS_TOKEN}'
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -23,6 +36,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
